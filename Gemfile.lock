@@ -1,0 +1,88 @@
+GIT
+  remote: git://github.com/javan/blade_runner-qunit_adapter.git
+  revision: 961acc78da3207d9f49f054ab2d516fadd2c7d5e
+  specs:
+    blade_runner-qunit_adapter (0.1.0)
+
+GIT
+  remote: git://github.com/javan/blade_runner.git
+  revision: 767e5be15f74ff57d8d1a1a712c811e92662ba88
+  specs:
+    blade_runner (0.1.0)
+      activesupport (>= 3.0.0)
+      coffee-script (~> 2.4.0)
+      coffee-script-source (~> 1.9.0)
+      curses (~> 1.0.0)
+      eventmachine (~> 1.0.0)
+      faye (~> 1.1.1)
+      sprockets (~> 3.2.0)
+      thin (~> 1.6.0)
+      useragent (~> 0.13.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (4.2.3)
+      i18n (~> 0.7)
+      json (~> 1.7, >= 1.7.7)
+      minitest (~> 5.1)
+      thread_safe (~> 0.3, >= 0.3.4)
+      tzinfo (~> 1.1)
+    addressable (2.3.8)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.9.1.1)
+    cookiejar (0.3.2)
+    curses (1.0.1)
+    daemons (1.2.3)
+    em-http-request (1.1.2)
+      addressable (>= 2.3.4)
+      cookiejar
+      em-socksify (>= 0.3)
+      eventmachine (>= 1.0.3)
+      http_parser.rb (>= 0.6.0)
+    em-socksify (0.3.0)
+      eventmachine (>= 1.0.0.beta.4)
+    eventmachine (1.0.7)
+    execjs (2.5.2)
+    faye (1.1.1)
+      cookiejar (>= 0.3.0)
+      em-http-request (>= 0.3.0)
+      eventmachine (>= 0.12.0)
+      faye-websocket (>= 0.9.1)
+      multi_json (>= 1.0.0)
+      rack (>= 1.0.0)
+      websocket-driver (>= 0.5.1)
+    faye-websocket (0.9.2)
+      eventmachine (>= 0.12.0)
+      websocket-driver (>= 0.5.1)
+    http_parser.rb (0.6.0)
+    i18n (0.7.0)
+    json (1.8.3)
+    minitest (5.7.0)
+    multi_json (1.11.2)
+    rack (1.6.4)
+    sprockets (3.2.0)
+      rack (~> 1.0)
+    thin (1.6.3)
+      daemons (~> 1.0, >= 1.0.9)
+      eventmachine (~> 1.0)
+      rack (~> 1.0)
+    thread_safe (0.3.5)
+    tzinfo (1.2.2)
+      thread_safe (~> 0.1)
+    useragent (0.13.3)
+    websocket-driver (0.5.4)
+      websocket-extensions (>= 0.1.0)
+    websocket-extensions (0.1.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  blade_runner!
+  blade_runner-qunit_adapter!
+
+BUNDLED WITH
+   1.10.5

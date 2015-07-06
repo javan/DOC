@@ -1,0 +1,8 @@
+framework: qunit
+
+load_paths:
+  - src
+  - test/src
+
+logical_paths:
+  - test.js
