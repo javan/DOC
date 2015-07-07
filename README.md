@@ -1,4 +1,6 @@
-# `DOC`, a DOM traversal and manipulation utility for modern browsers. Work in progress.
+#### `DOC`, a DOM traversal and manipulation utility for modern browsers. Work in progress.
+
+---
 
 `DOC(selector)` returns a `<doc-elements>` that quacks like a `DOC` object and array of matched elements.
 
@@ -11,7 +13,7 @@ Example usage given the following HTML:
 <ul class="list-b"></ul>
 ```
 
-In a psuedo CoffeeScript console:
+In a pseudo CoffeeScript console:
 ```coffee
 >> doc = DOC("ul.list-a li")
 => <doc-elements></doc-elements>
@@ -28,7 +30,7 @@ In a psuedo CoffeeScript console:
 >> element for element in doc
 => [<li>Item one</li>, <li>Item two</li>]
 
-doc.addClass("fancy")
+>> doc.addClass("fancy")
 => <doc-elements></doc-elements>
 
 >> document.body
