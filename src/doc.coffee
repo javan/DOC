@@ -74,7 +74,7 @@ for key in Object.getOwnPropertyNames(Array::) then do (key) ->
 for key, value of definition
   definition[key] = if typeof value is "function" then {value} else value
 
-tagName = "doc-placeholder"
+tagName = "doc-elements"
 prototype = Object.create(HTMLElement.prototype, definition)
 document.registerElement(tagName, {prototype})
 
