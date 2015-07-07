@@ -2,17 +2,15 @@ elementMap = new WeakMap()
 
 definition =
   elements:
+    enumerable: true
     get: ->
-      if elements = elementMap.get(this)
-        elements
-      else
-        [document]
-
+      elementMap.get(this) ? []
     set: (elements) ->
       elementMap.set(this, elements)
       @[index] = element for element, index in elements
 
   length:
+    enumerable: true
     get: ->
       @elements.length
 
@@ -72,7 +70,9 @@ for key in Object.getOwnPropertyNames(Array::) then do (key) ->
       Array::[key].apply(@elements, arguments)
 
 for key, value of definition
-  definition[key] = if typeof value is "function" then {value} else value
+  if typeof value is "function"
+    value = value: value, enumerable: true
+  definition[key] = value
 
 tagName = "doc-elements"
 prototype = Object.create(HTMLElement.prototype, definition)
@@ -81,14 +81,18 @@ document.registerElement(tagName, {prototype})
 @DOC = (selector) ->
   elements = switch
     when typeof selector is "string"
-      [document.querySelectorAll(selector)...]
-    when "length" of selector
-      [selector...]
-    else
+      document.querySelectorAll(selector)
+    when Array.isArray(selector) or selector?.length?
+      selector
+    when selector instanceof HTMLElement or selector instanceof HTMLDocument
       [selector]
+    when not selector?
+      [document]
+    else
+      throw new Error "Don't know how to handle #{selector}"
 
   el = document.createElement(tagName)
   el.elements = elements
   el
 
-Object.defineProperties(DOC, definition)
+DOC[key] = value for key, value of DOC(document)
