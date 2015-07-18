@@ -69,6 +69,18 @@ definition =
       element.classList.remove(name)
     this
 
+  addData: (data = {}) ->
+    for element in @elements
+      for key, value of data
+        element.dataset[key] = value
+    this
+
+  removeData: (keys...) ->
+    for element in @elements
+      for key in keys
+        delete element.dataset[key]
+    this
+
 for key in Object.getOwnPropertyNames(Array::) then do (key) ->
   if key isnt "constructor" and typeof Array::[key] is "function"
     definition[key] = ->
