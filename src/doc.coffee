@@ -20,20 +20,27 @@ definition =
     @parentNode.appendChild(fragment)
     @parentNode.removeChild(this)
 
-  find: (selector) ->
+  all: (selector) ->
     elements = []
     for element in @elements
       elements.push(element.querySelectorAll(selector)...)
     DOC(elements)
 
+  find: (selector) ->
+    for element in @elements
+      if match = element.querySelector(selector)
+        return DOC(match)
+    null
+
   first: (selector) ->
-    element = @[0]
-    element = element.querySelector(selector) if selector?
-    DOC(element)
+    if selector?
+      @all(selector).first()
+    else
+      DOC(@[0])
 
   last: (selector) ->
     if selector?
-      @find(selector).last()
+      @all(selector).last()
     else
       DOC(@[@length - 1])
 
