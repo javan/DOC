@@ -26,11 +26,16 @@ definition =
       elements.push(element.querySelectorAll(selector)...)
     DOC(elements)
 
-  first: ->
-    DOC(@[0])
+  first: (selector) ->
+    element = @[0]
+    element = element.querySelector(selector) if selector?
+    DOC(element)
 
-  last: ->
-    DOC(@[@length - 1])
+  last: (selector) ->
+    if selector?
+      @find(selector).last()
+    else
+      DOC(@[@length - 1])
 
   on: (event, handler) ->
     for element in @elements
