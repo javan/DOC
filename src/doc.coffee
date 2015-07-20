@@ -4,15 +4,19 @@ definition =
   elements:
     enumerable: true
     get: ->
-      elementMap.get(this) ? []
+      elementMap.get(this)
     set: (elements) ->
       elementMap.set(this, elements)
       @[index] = element for element, index in elements
+      @setAttribute("length", @length)
 
   length:
     enumerable: true
     get: ->
       @elements.length
+
+  createdCallback: ->
+    @elements = []
 
   attachedCallback: ->
     fragment = document.createDocumentFragment()
